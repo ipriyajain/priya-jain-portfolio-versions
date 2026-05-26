@@ -1,0 +1,48 @@
+name: Deploy Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create pages artifact
+        run: |
+          tar \
+            --dereference --hard-dereference \
+            --directory . \
+            -czf /tmp/pages.tar.gz \
+            --exclude=.git \
+            --exclude=.github \
+            .
+      - name: Upload artifact to GitHub Pages
+        run: |
+          UPLOAD_URL=$(curl -s \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            -X POST \
+            -F "artifact=@/tmp/pages.tar.gz" \
+            "https://uploads.github.com/repos/${{ github.repository }}/pages/artifacts" | \
+            grep -o "\"artifact_url\":\"[^\"]*\"" | cut -d\" -f4)
+          echo "ARTIFACT_URL=$UPLOAD_URL" >> $GITHUB_ENV
+          echo "Uploaded: $UPLOAD_URL"
+      - name: Deploy to GitHub Pages
+        run: |
+          curl -s \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            -X POST \
+            -d "{\"artifact_url\":\"${{ env.ARTIFACT_URL }}\",\"pages_build_version\":\"${{ github.sha }}\",\"oidc_token\":\"\"}" \
+            "https://api.github.com/repos/${{ github.repository }}/pages/deployments"
+

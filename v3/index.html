@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Priya Jain - Performance Marketing Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg-primary: #0a0e27;
+      --accent-cyan: #00d9ff;
+      --accent-magenta: #ff006e;
+      --accent-lime: #39ff14;
+      --text-primary: #f8f9fa;
+      --text-secondary: #a0a9c9;
+      --border: #2a2f4a;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    @keyframes slideInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+    .slide {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 40px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+      animation: fadeIn 0.8s ease-in;
+    }
+    .slide-1 {
+      background: linear-gradient(135deg, rgba(0, 217, 255, 0.15) 0%, rgba(255, 0, 110, 0.15) 50%, rgba(57, 255, 20, 0.1) 100%);
+    }
+    .slide-2 { background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(57, 255, 20, 0.1) 100%); }
+    .slide-3 { background: linear-gradient(135deg, rgba(255, 0, 110, 0.1) 0%, rgba(0, 217, 255, 0.1) 100%); }
+    .slide-4 { background: linear-gradient(135deg, rgba(57, 255, 20, 0.1) 0%, rgba(255, 0, 110, 0.1) 100%); }
+    .slide-5 { background: linear-gradient(135deg, rgba(0, 217, 255, 0.12) 0%, rgba(57, 255, 20, 0.12) 100%); }
+    .slide:nth-child(6n+6) { background: linear-gradient(135deg, rgba(255, 0, 110, 0.1) 0%, rgba(0, 217, 255, 0.1) 100%); }
+    .slide:nth-child(6n+7) { background: linear-gradient(135deg, rgba(57, 255, 20, 0.1) 0%, rgba(255, 0, 110, 0.12) 100%); }
+    .slide:nth-child(6n+8) { background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(255, 0, 110, 0.1) 100%); }
+    .slide:nth-child(6n+9) { background: linear-gradient(135deg, rgba(57, 255, 20, 0.08) 0%, rgba(0, 217, 255, 0.1) 100%); }
+    .slide:nth-child(6n+10) { background: linear-gradient(135deg, rgba(255, 0, 110, 0.12) 0%, rgba(57, 255, 20, 0.1) 100%); }
+    .hero-content {
+      text-align: center;
+      max-width: 900px;
+    }
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 88px;
+      margin-bottom: 16px;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta), var(--accent-lime), var(--accent-cyan));
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: slideInUp 0.8s ease-out;
+    }
+    .hero-content p {
+      font-size: 22px;
+      color: var(--text-secondary);
+      margin-bottom: 50px;
+      animation: slideInUp 0.8s ease-out 0.2s both;
+    }
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      margin-top: 50px;
+      animation: slideInUp 0.8s ease-out 0.4s both;
+    }
+    .metric {
+      padding: 28px;
+      background: linear-gradient(135deg, rgba(0, 217, 255, 0.12) 0%, rgba(255, 0, 110, 0.08) 100%);
+      border-radius: 12px;
+      border: 1px solid var(--accent-cyan);
+      transition: all 0.3s ease;
+    }
+    .metric:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent-magenta);
+      box-shadow: 0 16px 48px rgba(255, 0, 110, 0.2);
+    }
+    .metric-value {
+      font-size: 44px;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+      animation: pulse 3s ease-in-out infinite;
+    }
+    .metric-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    .slide h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 56px;
+      margin-bottom: 40px;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: slideInUp 0.8s ease-out;
+    }
+    .slide h3 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: var(--accent-lime);
+      animation: slideInUp 0.8s ease-out 0.2s both;
+    }
+    .case-grid { display: grid; grid-template-columns: 1fr; gap: 32px; max-width: 1000px; }
+    .case-card {
+      background: linear-gradient(135deg, rgba(0, 217, 255, 0.08) 0%, rgba(255, 0, 110, 0.05) 100%);
+      border: 2px solid var(--accent-cyan);
+      border-radius: 16px;
+      padding: 40px;
+      transition: all 0.3s ease;
+      animation: slideInUp 0.8s ease-out;
+    }
+    .case-card:hover {
+      border-color: var(--accent-magenta);
+      box-shadow: 0 16px 48px rgba(255, 0, 110, 0.25);
+      transform: translateY(-6px);
+    }
+    .case-header { margin-bottom: 24px; }
+    .case-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 13px;
+      color: var(--accent-lime);
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .case-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+    .case-meta {
+      font-size: 13px;
+      color: var(--accent-cyan);
+    }
+    .case-section {
+      margin-bottom: 24px;
+    }
+    .case-section h4 {
+      font-weight: 600;
+      color: var(--accent-lime);
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+    .case-section p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+    .case-results {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .result-item {
+      padding: 16px;
+      background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(57, 255, 20, 0.08));
+      border: 1px solid var(--accent-cyan);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    .result-item:hover {
+      border-color: var(--accent-magenta);
+      background: linear-gradient(135deg, rgba(255, 0, 110, 0.1), rgba(0, 217, 255, 0.08));
+    }
+    .result-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .result-value {
+      font-size: 24px;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .image-placeholder { display: block; margin: 24px 0; }
+    .image-placeholder:hover {
+      border-color: var(--accent-magenta);
+      box-shadow: 0 8px 24px rgba(0, 217, 255, 0.15);
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 900px;
+    }
+    .skill {
+      padding: 14px;
+      background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(57, 255, 20, 0.08));
+      border: 1px solid var(--accent-cyan);
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--text-primary);
+      transition: all 0.3s ease;
+    }
+    .skill:hover {
+      border-color: var(--accent-magenta);
+      background: linear-gradient(135deg, rgba(255, 0, 110, 0.1), rgba(0, 217, 255, 0.08));
+      transform: scale(1.05);
+    }
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 900px;
+    }
+    .toc-item {
+      padding: 24px;
+      background: linear-gradient(135deg, rgba(0, 217, 255, 0.08), rgba(57, 255, 20, 0.06));
+      border: 2px solid var(--accent-cyan);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+    .toc-item:hover {
+      border-color: var(--accent-magenta);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 36px rgba(255, 0, 110, 0.15);
+    }
+    .toc-item h4 {
+      font-size: 16px;
+      color: var(--accent-lime);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    .toc-item p {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 900px;
+    }
+    .cert {
+      padding: 24px;
+      background: linear-gradient(135deg, rgba(57, 255, 20, 0.08), rgba(0, 217, 255, 0.06));
+      border: 2px solid var(--accent-lime);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+    .cert:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 36px rgba(57, 255, 20, 0.15);
+    }
+    .cert h4 { color: var(--accent-lime); font-size: 14px; margin-bottom: 8px; font-weight: 600; }
+    .cert p { font-size: 13px; color: var(--text-secondary); }
+    .industries-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 1000px;
+    }
+    .industry {
+      padding: 20px;
+      background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(255, 0, 110, 0.08));
+      border: 1px solid var(--accent-cyan);
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--text-primary);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .industry:hover {
+      border-color: var(--accent-magenta);
+      background: linear-gradient(135deg, rgba(255, 0, 110, 0.12), rgba(0, 217, 255, 0.1));
+      transform: scale(1.08);
+    }
+    .cta { text-align: center; }
+    .cta h2 { margin-bottom: 16px; }
+    .cta p { font-size: 18px; color: var(--text-secondary); margin-bottom: 32px; }
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .contact-item {
+      padding: 24px;
+      background: linear-gradient(135deg, rgba(255, 0, 110, 0.1), rgba(0, 217, 255, 0.08));
+      border: 2px solid var(--accent-magenta);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+    .contact-item:hover {
+      border-color: var(--accent-lime);
+      transform: translateX(8px);
+      box-shadow: 0 8px 24px rgba(255, 0, 110, 0.15);
+    }
+    .contact-item strong { color: var(--accent-magenta); display: block; margin-bottom: 4px; font-weight: 600; }
+    @media (max-width: 768px) {
+      .slide { padding: 40px 20px; }
+      .hero-content h1 { font-size: 48px; }
+      .slide h2 { font-size: 36px; }
+      .hero-metrics { grid-template-columns: repeat(2, 1fr); }
+      .case-results { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .certs-grid { grid-template-columns: 1fr; }
+      .industries-grid { grid-template-columns: repeat(2, 1fr); }
+      .toc-grid { grid-template-columns: 1fr; }
+    }
+    img {
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      border-radius: 8px;
+      margin: 32px auto;
+      display: block;
+      box-shadow: 0 8px 24px rgba(0, 217, 255, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <!-- SLIDE 1: HERO -->
+  <section class="slide slide-1">
+    <div class="hero-content">
+      <h1>PRIYA JAIN</h1>
+      <p>Performance Marketing Expert | Data-Driven Growth Specialist</p>
+      <div class="hero-metrics">
+        <div class="metric">
+          <div class="metric-value">3+</div>
+          <div class="metric-label">Years Experience</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">6.42×</div>
+          <div class="metric-label">Best ROAS</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">$500K+</div>
+          <div class="metric-label">Monthly Budget</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">706%</div>
+          <div class="metric-label">Organic Growth</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 2: TABLE OF CONTENTS -->
+  <section class="slide slide-2">
+    <h2>Contents</h2>
+    <div class="toc-grid">
+      <div class="toc-item">
+        <h4>01. About Me</h4>
+        <p>Background, core expertise, and skill set. 3+ years of hands-on experience scaling digital campaigns.</p>
+      </div>
+      <div class="toc-item">
+        <h4>02. Tech Stack</h4>
+        <p>Google Ads, Meta Ads, Amazon, GA4. Proficiency levels and specialization areas.</p>
+      </div>
+      <div class="toc-item">
+        <h4>03. SEO Case Studies</h4>
+        <p>3 live SEO projects. 3,268 organic keywords, 706% growth, $51K+ monthly value.</p>
+      </div>
+      <div class="toc-item">
+        <h4>04. Google Ads</h4>
+        <p>3 Google Ads accounts. 73,479 clicks, 14.48% conversion rate, $0.45 CPC.</p>
+      </div>
+      <div class="toc-item">
+        <h4>05. Meta Ads</h4>
+        <p>3 Meta Ads accounts. 6.42× ROAS, $591K revenue, 13,906 purchases.</p>
+      </div>
+      <div class="toc-item">
+        <h4>06. Amazon Ads</h4>
+        <p>4 Amazon Seller accounts. 259% growth, 2× revenue, 4 product categories.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 3: ABOUT ME -->
+  <section class="slide slide-3">
+    <h2>About Me</h2>
+    <div style="max-width: 900px;">
+      <h3>Performance Marketing Expert</h3>
+      <p style="font-size: 16px; margin-bottom: 24px; line-height: 1.8;">Results-driven specialist with 3+ years managing paid media campaigns, SEO strategies, and Amazon Seller accounts across B2B and B2C markets. Combining analytical rigor with creative execution to deliver measurable revenue — scaling Google & Meta budgets to $500K/month and growing organic traffic by 706% in 7 months.</p>
+      <h4 style="margin-top: 32px; margin-bottom: 16px; color: var(--accent-lime);">Core Expertise:</h4>
+      <div class="skills-grid">
+        <div class="skill">PPC / Paid Search</div>
+        <div class="skill">SEO</div>
+        <div class="skill">CRO</div>
+        <div class="skill">A/B Testing</div>
+        <div class="skill">Demand Generation</div>
+        <div class="skill">Lead Generation</div>
+        <div class="skill">Funnel Optimization</div>
+        <div class="skill">Attribution Modeling</div>
+        <div class="skill">Amazon Advertising</div>
+      </div>
+      <p style="font-size: 14px; color: var(--text-secondary); padding: 20px; background: linear-gradient(135deg, rgba(0, 217, 255, 0.08), rgba(255, 0, 110, 0.08)); border-radius: 8px; border: 1px solid var(--accent-cyan);"><strong>Email:</strong> ipriyajain4@gmail.com</p>
+    </div>
+  </section>
+
+  <!-- SLIDE 4: TECH STACK -->
+  <section class="slide slide-4">
+    <h2>Tech Stack</h2>
+    <div style="max-width: 1000px; width: 100%;">
+      <div class="case-grid">
+        <div style="background: linear-gradient(135deg, rgba(0, 217, 255, 0.12), rgba(0, 217, 255, 0.06)); padding: 28px; border-radius: 12px; border: 2px solid var(--accent-cyan);">
+          <h4 style="color: var(--accent-cyan); margin-bottom: 8px;">📢 Google Ads</h4>
+          <p style="font-size: 13px; color: var(--text-secondary);">EXPERT | Search · Display · PMax · Demand Gen</p>
+        </div>
+        <div style="background: linear-gradient(135deg, rgba(255, 0, 110, 0.12), rgba(255, 0, 110, 0.06)); padding: 28px; border-radius: 12px; border: 2px solid var(--accent-magenta);">
+          <h4 style="color: var(--accent-magenta); margin-bottom: 8px;">📘 Meta Ads</h4>
+          <p style="font-size: 13px; color: var(--text-secondary);">EXPERT | FB · Instagram · Shops · Lead Ads</p>
+        </div>
+        <div style="background: linear-gradient(135deg, rgba(57, 255, 20, 0.12), rgba(57, 255, 20, 0.06)); padding: 28px; border-radius: 12px; border: 2px solid var(--accent-lime);">
+          <h4 style="color: var(--accent-lime); margin-bottom: 8px;">📦 Amazon Ads</h4>
+          <p style="font-size: 13px; color: var(--text-secondary);">ADVANCED | Sponsored Products · Brands · Auto</p>
+        </div>
+        <div style="background: linear-gradient(135deg, rgba(0, 217, 255, 0.12), rgba(57, 255, 20, 0.08)); padding: 28px; border-radius: 12px; border: 2px solid var(--accent-cyan);">
+          <h4 style="color: var(--accent-cyan); margin-bottom: 8px;">📊 GA4 & GTM</h4>
+          <p style="font-size: 13px; color: var(--text-secondary);">EXPERT | Analytics & Conversion Tracking</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 5: SEO INTRO -->
+  <section class="slide slide-5">
+    <h2>SEO Case Studies</h2>
+    <div style="max-width: 900px; text-align: center;">
+      <h3>3 Live Projects covering organic growth, keyword ranking, and technical SEO strategy</h3>
+      <p style="color: var(--text-secondary); margin-top: 24px;">Real results across B2B and B2C websites — from zero to 3,268 organic keywords in 7 months.</p>
+      <div class="hero-metrics" style="margin-top: 40px;">
+        <div class="metric">
+          <div class="metric-value">3,268</div>
+          <div class="metric-label">Organic Keywords</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">+706%</div>
+          <div class="metric-label">Traffic Growth</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">$51K+</div>
+          <div class="metric-label">Monthly SEO Value</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 6: SEO CASE STUDY 01 -->
+  <section class="slide">
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-number">SEO CASE STUDY 01</div>
+          <div class="case-title">MiningDoc.tech</div>
+          <div class="case-meta">Mining & Industrial B2B | Nov 2024 – Jun 2025</div>
+        </div>
+        <div class="case-section">
+          <h4>Challenge</h4>
+          <p>New website, zero organic presence. Needed rapid keyword ranking and authority in a competitive B2B niche.</p>
+        </div>
+        <div class="case-section">
+          <h4>Approach</h4>
+          <p>Comprehensive SEO audit + 3,000+ keyword gap analysis. On-page optimization: metadata, schema, internal links. Technical SEO: Core Web Vitals, sitemaps, crawl fixes. AI-SEO: content earning citations from ChatGPT & Perplexity.</p>
+        </div>
+        <div class="image-placeholder"><img src="assets/images/image-11-1.jpeg" alt="Analytics Dashboard Screenshot"></div>
+        <div class="case-results">
+          <div class="result-item">
+            <div class="result-label">Keyword Growth</div>
+            <div class="result-value">+746%</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Keywords Ranked</div>
+            <div class="result-value">386 → 3,268</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Organic Users</div>
+            <div class="result-value">+706%</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">AI Traffic</div>
+            <div class="result-value">701 referrals</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 7: SEO CASE STUDY 01 RESULTS -->
+  <section class="slide">
+    <h2>GA4 Analytics Results</h2>
+    <div class="case-grid">
+      <div class="case-card">
+        <h3 style="text-align: center; margin-bottom: 32px;">706% Organic User Growth</h3>
+        <div class="case-results">
+          <div class="result-item">
+            <div class="result-label">Organic Users</div>
+            <div class="result-value">18,089</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Previous Period</div>
+            <div class="result-value">2,242</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">New Users Growth</div>
+            <div class="result-value">+712%</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Event Count</div>
+            <div class="result-value">+486%</div>
+          </div>
+        </div>
+        <div class="image-placeholder"><img src="assets/images/image-6-2.png" alt="GA4 Traffic Chart"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 8: SEO CASE STUDY 02 -->
+  <section class="slide">
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-number">SEO CASE STUDY 02</div>
+          <div class="case-title">DTSone.com</div>
+          <div class="case-meta">Stone & Construction B2B | 2023–2025</div>
+        </div>
+        <div class="case-section">
+          <h4>Challenge</h4>
+          <p>Grow organic visibility for a product-heavy B2B site with large SKU catalog against strong category competitors.</p>
+        </div>
+        <div class="case-section">
+          <h4>Approach</h4>
+          <p>Built 7,056 organic keyword portfolio. Optimized 40+ priority pages for Top 10 rankings. Technical SEO + structured data for rich results. Achieved 3.16M impressions in 6 months.</p>
+        </div>
+        <div class="image-placeholder"><img src="assets/images/image-8-1.png" alt="SERP Rankings"></div>
+        <div class="case-results">
+          <div class="result-item">
+            <div class="result-label">Keywords Ranked</div>
+            <div class="result-value">7,056</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Top 10 Pages</div>
+            <div class="result-value">40+</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Impressions (6mo)</div>
+            <div class="result-value">3.16M</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 9: SEO CASE STUDY 03 -->
+  <section class="slide">
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-number">SEO CASE STUDY 03</div>
+          <div class="case-title">Solti.com</div>
+          <div class="case-meta">Fintech · Trading Platform | 2024–2025</div>
+        </div>
+        <div class="case-section">
+          <h4>Challenge</h4>
+          <p>Average SERP position of 15.3 — stuck below page 1. Needed CTR improvement and ranking consolidation.</p>
+        </div>
+        <div class="case-section">
+          <h4>Approach</h4>
+          <p>SERP analysis for quick position gains. Rewrote title tags & meta descriptions for CTR. Content depth improvements on key landing pages. Pushed avg. position from 15.3 → 10.4 in 3 months.</p>
+        </div>
+        <div class="image-placeholder"><img src="assets/images/image-6-1.png" alt="Ranking Progress Graph"></div>
+        <div class="case-results">
+          <div class="result-item">
+            <div class="result-label">Avg Position (Before)</div>
+            <div class="result-value">15.3</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Avg Position (After)</div>
+            <div class="result-value">10.4</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Improvement</div>
+            <div class="result-value">-5 positions</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 10: GOOGLE ADS INTRO -->
+  <section class="slide">
+    <h2>Google Ads Case Studies</h2>
+    <div style="max-width: 900px; text-align: center;">
+      <h3>3 live Google Ads accounts across local services, marine dealerships, and growth campaigns.</h3>
+      <p style="color: var(--text-secondary); margin-top: 24px;">Search · PMax · Display · Demand Gen — from small account builds to multi-campaign enterprise management.</p>
+      <div class="hero-metrics" style="margin-top: 40px;">
+        <div class="metric">
+          <div class="metric-value">73,479</div>
+          <div class="metric-label">Total Clicks</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">14.48%</div>
+          <div class="metric-label">Best CR</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">$0.45</div>
+          <div class="metric-label">Min CPC</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 11: GOOGLE ADS CS 01 -->
+  <section class="slide">
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-number">GOOGLE ADS CS 01</div>
+          <div class="case-title">Local Service Business - Full Account Build</div>
+          <div class="case-meta">Local Service · North America | 2025</div>
+        </div>
+        <div class="case-section">
+          <h4>Challenge</h4>
+          <p>No existing account — needed full build with proper campaign architecture and conversion tracking from scratch.</p>
+        </div>
+        <div class="case-section">
+          <h4>Approach</h4>
+          <p>4-campaign structure: Search, Display, Demand Gen, PMax. Local intent keyword research + match-type strategy. GTM + GA4 conversion tracking setup. 14.48% conversion rate on Search campaigns.</p>
+        </div>
+        <div class="image-placeholder"><img src="assets/images/image-12-1.jpeg" alt="Campaign Structure Diagram"></div>
+        <div class="case-results">
+          <div class="result-item">
+            <div class="result-label">Conversion Rate</div>
+            <div class="result-value">14.48%</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Campaigns</div>
+            <div class="result-value">4 active</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 12: GOOGLE ADS CS 02 -->
+  <section class="slide">
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-number">GOOGLE ADS CS 02</div>
+          <div class="case-title">Marine Dealership Multi-Campaign Scale</div>
+          <div class="case-meta">Marine & Powersports · Multi-Location US</div>
+        </div>
+        <div class="case-section">
+          <h4>Challenge</h4>
+          <p>Scale a multi-brand dealership across 15 campaigns covering multiple inventory types and locations with budget constraints.</p>
+        </div>
+        <div class="case-section">
+          <h4>Approach</h4>
+          <p>15 campaigns: Yamaha/Suzuki, Duck Boat, PMax, DSA. $0.57 avg CPC across 2.35M impressions. Remarketing: 98 conversions at $19.89 CPA. $46,348 spend · 73,479 clicks · 1,863 conversions.</p>
+        </div>
+        <div class="image-placeholder"><img src="assets/images/image-15-1.jpeg" alt="Campaign Performance Dashboard"></div>
+        <div class="case-results">
+          <div class="result-item">
+            <div class="result-label">Total Spend</div>
+            <div class="result-value">$46,348</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Conversions</div>
+            <div class="result-value">1,863</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Clicks</div>
+            <div class="result-value">73,479</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Avg CPC</div>
+            <div class="result-value">$0.57</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 13: GOOGLE ADS CS 03 -->
+  <section class="slide">
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-number">GOOGLE ADS CS 03</div>
+          <div class="case-title">Growth Campaign Low-CPC Scaling</div>
+          <div class="case-meta">B2C · Traffic & Awareness | Apr–May 2026</div>
+        </div>
+        <div class="case-section">
+          <h4>Challenge</h4>
+          <p>Drive high-volume traffic at minimal cost while building brand awareness and improving engagement over time.</p>
+        </div>
+        <div class="case-section">
+          <h4>Approach</h4>
+          <p>Broad-to-exact keyword funnel for impression share. $0.45 avg CPC — well below industry benchmark. Consistent upward click trend Apr–May 2026.</p>
+        </div>
+        <div class="image-placeholder"><img src="assets/images/image-13-1.jpeg" alt="Traffic Trends"></div>
+        <div class="case-results">
+          <div class="result-item">
+            <div class="result-label">Avg CPC</div>
+            <div class="result-value">$0.45</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Clicks</div>
+            <div class="result-value">4,460</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Impressions</div>
+            <div class="result-value">93,200</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Total Spend</div>
+            <div class="result-value">$2,020</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 14: META ADS INTRO -->
+  <section class="slide">
+    <h2>Meta Ads Case Studies</h2>
+    <div style="max-width: 900px; text-align: center;">
+      <h3>3 live Meta Ads accounts spanning D2C ecommerce, healthcare lead gen, and B2B dealerships.</h3>
+      <p style="color: var(--text-secondary); margin-top: 24px;">Ecommerce · Healthcare Lead Gen · B2B Leads — full-funnel campaign management with measurable ROAS.</p>
+      <div class="hero-metrics" style="margin-top: 40px;">
+        <div class="metric">
+          <div class="metric-value">6.42×</div>
+          <div class="metric-label">Average ROAS</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">$591K</div>
+          <div class="metric-label">Revenue Generated</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">13,906</div>
+          <div class="metric-label">Total Purchases</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 15: META ADS CS 01 -->
+  <section class="slide">
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-number">META ADS CS 01</div>
+          <div class="case-title">D2C Ecommerce 6.42× ROAS at Scale</div>
+          <div class="case-meta">Fashion / Lifestyle Shops · 190 Campaigns</div>
+        </div>
+        <div class="case-section">
+          <h4>Challenge</h4>
+          <p>Scale Meta Shops profitably across 190 campaigns while maintaining ROAS above 4× at high spend volume.</p>
+        </div>
+        <div class="case-section">
+          <h4>Approach</h4>
+          <p>Full-funnel ASC (Advantage+ Shopping) architecture. Creative A/B: catalog vs. collection vs. single-image. Retargeting CBO with audience exclusion layers. Best: Disney Collection — $33K → $249K (7.53× ROAS).</p>
+        </div>
+        <div class="image-placeholder"><img src="assets/images/image-15-1.jpeg" alt="Campaign Metrics"></div>
+        <div class="case-results">
+          <div class="result-item">
+            <div class="result-label">Average ROAS</div>
+            <div class="result-value">6.42×</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Best ROAS</div>
+            <div class="result-value">7.53×</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Revenue</div>
+            <div class="result-value">$591K</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Campaigns</div>
+            <div class="result-value">190</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 16: META ADS CS 02 -->
+  <section class="slide">
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-number">META ADS CS 02</div>
+          <div class="case-title">TMS Healthcare Controlled CPL</div>
+          <div class="case-meta">Healthcare · TMS Therapy · 55 Campaigns</div>
+        </div>
+        <div class="case-section">
+          <h4>Challenge</h4>
+          <p>Generate qualified patient leads for TMS therapy clinics at controlled cost in a regulated healthcare environment.</p>
+        </div>
+        <div class="case-section">
+          <h4>Approach</h4>
+          <p>Lead form campaigns geo-targeted by clinic location. Video + static creative testing for TMS awareness. Oct 2025: 274 leads at $22.46 CPL across 55 active campaigns.</p>
+        </div>
+        <div class="image-placeholder"><img src="assets/images/image-19-1.png" alt="Lead Generation Stats"></div>
+        <div class="case-results">
+          <div class="result-item">
+            <div class="result-label">Total Leads</div>
+            <div class="result-value">274</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">CPL</div>
+            <div class="result-value">$22.46</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Total Spend</div>
+            <div class="result-value">$8,509</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Campaigns</div>
+            <div class="result-value">55</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 17: META ADS CS 03 -->
+  <section class="slide">
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-number">META ADS CS 03</div>
+          <div class="case-title">Marine & B2B Lead Generation</div>
+          <div class="case-meta">Marine / Powersports · 58 Campaigns</div>
+        </div>
+        <div class="case-section">
+          <h4>Challenge</h4>
+          <p>Drive qualified leads for boat and powersport dealers across multiple brands using Meta lead forms.</p>
+        </div>
+        <div class="case-section">
+          <h4>Approach</h4>
+          <p>Instant Form campaigns for multiple inventory brands. Dynamic audience targeting by inventory segment. Lead form vs. landing page A/B test. Best CPL: Excel Duck Boat at $7.93–$11.01.</p>
+        </div>
+        <div class="image-placeholder"><img src="assets/images/image-20-1.png" alt="Lead Performance Breakdown"></div>
+        <div class="case-results">
+          <div class="result-item">
+            <div class="result-label">Best CPL</div>
+            <div class="result-value">$7.93</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Campaigns</div>
+            <div class="result-value">58</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 18: AMAZON ADS INTRO -->
+  <section class="slide">
+    <h2>Amazon Ads Case Studies</h2>
+    <div style="max-width: 900px; text-align: center;">
+      <h3>4 Amazon Seller accounts across Sports, Fashion, Food, and Health categories on Amazon India.</h3>
+      <p style="color: var(--text-secondary); margin-top: 24px;">SP · SB · Auto/Manual targeting — ACoS optimization, keyword harvesting, and revenue scaling.</p>
+      <div class="hero-metrics" style="margin-top: 40px;">
+        <div class="metric">
+          <div class="metric-value">+259%</div>
+          <div class="metric-label">Best Orders Growth</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">2×</div>
+          <div class="metric-label">Revenue Doubled</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">4</div>
+          <div class="metric-label">Categories</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 19: AMAZON CS 01 -->
+  <section class="slide">
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-number">AMAZON CS 01</div>
+          <div class="case-title">Sports Category Doubling Revenue</div>
+          <div class="case-meta">Sports & Fitness Equipment · Amazon India</div>
+        </div>
+        <div class="case-section">
+          <h4>Challenge</h4>
+          <p>Untargeted auto campaigns consuming budget without consistent sales growth in competitive sports category.</p>
+        </div>
+        <div class="case-section">
+          <h4>Approach</h4>
+          <p>Restructured SP: manual + auto targeting. Keyword harvesting from auto to manual. A/B tested ad copy and product images for CTR. Bid optimization: Top of Search vs. Rest.</p>
+        </div>
+        <div class="image-placeholder"><img src="assets/images/image-16-1.jpeg" alt="Campaign Comparison Before/After"></div>
+        <div class="case-results">
+          <div class="result-item">
+            <div class="result-label">Revenue Growth</div>
+            <div class="result-value">+98%</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Before</div>
+            <div class="result-value">₹8.8L</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">After</div>
+            <div class="result-value">₹17.5L</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Orders</div>
+            <div class="result-value">204 → 406</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 20: AMAZON CS 02 -->
+  <section class="slide">
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-number">AMAZON CS 02</div>
+          <div class="case-title">Laptop Bags +50% Revenue</div>
+          <div class="case-meta">Laptop Backpack & Office Bags · Amazon India</div>
+        </div>
+        <div class="case-section">
+          <h4>Challenge</h4>
+          <p>Low sales velocity in competitive accessories category with limited keyword coverage and poor CVR.</p>
+        </div>
+        <div class="case-section">
+          <h4>Approach</h4>
+          <p>SP targeting high-intent buyer keywords. Competitor keyword gap analysis. Listing SEO: title, bullets, search terms. Promotions to boost session-to-order CVR.</p>
+        </div>
+        <div class="image-placeholder"><img src="assets/images/image-20-1.png" alt="Laptop Bags Performance"></div>
+        <div class="case-results">
+          <div class="result-item">
+            <div class="result-label">Revenue Growth</div>
+            <div class="result-value">+50%</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Before</div>
+            <div class="result-value">₹75K</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">After</div>
+            <div class="result-value">₹1.12L</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Orders</div>
+            <div class="result-value">18 → 32</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 21: AMAZON CS 03 -->
+  <section class="slide">
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-number">AMAZON CS 03</div>
+          <div class="case-title">Food & Snacks 3.5× Revenue Growth</div>
+          <div class="case-meta">Food & Snacks · FMCG · Amazon India</div>
+        </div>
+        <div class="case-section">
+          <h4>Challenge</h4>
+          <p>FMCG with high purchase frequency but low repeat rate — needed both discovery and retention campaigns.</p>
+        </div>
+        <div class="case-section">
+          <h4>Approach</h4>
+          <p>Auto + 3 Manual campaigns (broad/phrase/exact). Branded + category keyword targeting. Subscribe & Save promotions for repeat orders. ACoS optimization via systematic bid management.</p>
+        </div>
+        <div class="image-placeholder"><img src="assets/images/image-21-1.png" alt="Food Revenue Growth"></div>
+        <div class="case-results">
+          <div class="result-item">
+            <div class="result-label">Revenue Growth</div>
+            <div class="result-value">+256%</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Before</div>
+            <div class="result-value">₹86K</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">After</div>
+            <div class="result-value">₹3.08L</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Orders</div>
+            <div class="result-value">178 → 639</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 22: AMAZON CS 04 -->
+  <section class="slide">
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-number">AMAZON CS 04</div>
+          <div class="case-title">Health & Care Scaling High Volume</div>
+          <div class="case-meta">Health · Medicines · Personal Care · Amazon India</div>
+        </div>
+        <div class="case-section">
+          <h4>Challenge</h4>
+          <p>High-SKU health account with 768+ monthly orders — needed to scale while improving ACoS and PDP visibility.</p>
+        </div>
+        <div class="case-section">
+          <h4>Approach</h4>
+          <p>Advanced SP + Sponsored Brands strategy. Product targeting to intercept competitor PDP traffic. Bid adjustments by placement + time-of-day. Doubled orders from 768 → 1,507.</p>
+        </div>
+        <div class="image-placeholder"><img src="assets/images/image-22-1.png" alt="Health Scaling"></div>
+        <div class="case-results">
+          <div class="result-item">
+            <div class="result-label">Revenue Growth</div>
+            <div class="result-value">+70%</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Before</div>
+            <div class="result-value">₹4.86L</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">After</div>
+            <div class="result-value">₹8.26L</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Orders</div>
+            <div class="result-value">768 → 1,507</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 23: CERTIFICATIONS -->
+  <section class="slide">
+    <h2>Certifications & Education</h2>
+    <div class="certs-grid">
+      <div class="cert">
+        <h4>Google Analytics Certification</h4>
+        <p>Valid 2026</p>
+      </div>
+      <div class="cert">
+        <h4>Google Ads Certification</h4>
+        <p>Valid 2025–2026</p>
+      </div>
+      <div class="cert">
+        <h4>IIDE MUMBAI - PCDMS</h4>
+        <p>Professional Certificate in Digital Marketing & Strategy | 2025–2026</p>
+      </div>
+      <div class="cert">
+        <h4>DAVV, INDORE - MBA</h4>
+        <p>Master of Business Administration | Currently Pursuing 2024–2026</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 24: INDUSTRIES & EXPERIENCE -->
+  <section class="slide">
+    <h2>Industries & Experience</h2>
+    <div class="industries-grid">
+      <div class="industry">📦 Ecommerce & Retail</div>
+      <div class="industry">🏥 Healthcare & SaaS</div>
+      <div class="industry">⚙️ B2B & Manufacturing</div>
+      <div class="industry">🚗 Automotive & Dealership</div>
+      <div class="industry">🏠 Home Services</div>
+      <div class="industry">🍔 Food & FMCG</div>
+      <div class="industry">⚽ Sports & Fitness</div>
+      <div class="industry">👗 Fashion & Beauty</div>
+      <div class="industry">✈️ Travel & Hospitality</div>
+      <div class="industry">🎓 Education & Training</div>
+      <div class="industry">💰 Finance & Insurance</div>
+      <div class="industry">🌐 Technology & SaaS</div>
+    </div>
+  </section>
+
+  <!-- SLIDE 25: CTA & CONTACT -->
+  <section class="slide">
+    <div class="cta">
+      <h2>Let's Scale Your Growth</h2>
+      <p>Ready to double your revenue, reduce CAC, or dominate your category? Let's talk.</p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <strong>📧 Email</strong>
+          ipriyajain4@gmail.com
+        </div>
+        <div class="contact-item">
+          <strong>🔗 LinkedIn</strong>
+          linkedin.com/in/priyajain1999
+        </div>
+        <div class="contact-item">
+          <strong>💬 WhatsApp</strong>
+          +91 XXXXXXXXXX
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

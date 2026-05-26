@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priya Jain - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #2a2a2a;
+            line-height: 1.6;
+            background: #faf8f5;
+            scroll-behavior: smooth;
+        }
+
+        section {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-number {
+            position: absolute;
+            font-family: 'Playfair Display', serif;
+            font-size: 280px;
+            font-weight: 400;
+            color: rgba(74, 123, 167, 0.03);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            pointer-events: none;
+            line-height: 1;
+        }
+
+        .section-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: #4a7ba7;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 72px;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        h2 {
+            font-size: 48px;
+            margin-bottom: 30px;
+        }
+
+        h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #faf8f5 0%, #f0ede8 100%);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 84px;
+            margin-bottom: 30px;
+            color: #4a7ba7;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: #777;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+            padding: 60px 0;
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 48px;
+            font-weight: 600;
+            color: #4a7ba7;
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .metric-label {
+            font-size: 14px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* TOC Section */
+        .toc-content {
+            text-align: center;
+        }
+
+        .toc-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .toc-item {
+            padding: 25px;
+            background: white;
+            border: 1px solid #e8e4e0;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .toc-item:hover {
+            border-color: #4a7ba7;
+            box-shadow: 0 8px 24px rgba(74, 123, 167, 0.08);
+        }
+
+        .toc-item-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: #4a7ba7;
+            margin-bottom: 10px;
+        }
+
+        .toc-item-title {
+            font-size: 14px;
+            color: #777;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            margin-bottom: 30px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .about-highlights {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .highlight-tag {
+            background: white;
+            border: 1px solid #e8e4e0;
+            padding: 10px 16px;
+            border-radius: 2px;
+            font-size: 13px;
+            color: #4a7ba7;
+        }
+
+        /* Tech Stack */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .tech-item {
+            padding: 30px;
+            background: white;
+            border: 1px solid #e8e4e0;
+            border-radius: 2px;
+            text-align: center;
+        }
+
+        .tech-item h4 {
+            font-family: 'Playfair Display', serif;
+            color: #4a7ba7;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .tech-item p {
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Case Studies */
+        .case-study {
+            background: white;
+            padding: 40px;
+            border: 1px solid #e8e4e0;
+            border-radius: 2px;
+            margin-bottom: 30px;
+        }
+
+        .case-study-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #f0ede8;
+            padding-bottom: 30px;
+        }
+
+        .case-study h3 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .case-study-category {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #999;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .case-study-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            text-align: right;
+        }
+
+        .meta-item {
+            text-align: right;
+        }
+
+        .meta-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #999;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .meta-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            color: #4a7ba7;
+        }
+
+        .case-study-description {
+            margin-bottom: 40px;
+        }
+
+        .case-study-description p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .metrics-table {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .metrics-table tr {
+            border-bottom: 1px solid #f0ede8;
+        }
+
+        .metrics-table td {
+            padding: 15px 0;
+            font-size: 14px;
+        }
+
+        .metrics-table td:first-child {
+            color: #999;
+            font-weight: 500;
+        }
+
+        .metrics-table td:last-child {
+            text-align: right;
+            color: #4a7ba7;
+            font-weight: 600;
+        }
+
+        .case-study-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .case-image-wrapper {
+            background: #f9f7f4;
+            border: 1px solid #e8e4e0;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .case-study img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Certifications */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .certification {
+            padding: 30px;
+            background: white;
+            border: 1px solid #e8e4e0;
+            border-radius: 2px;
+            text-align: center;
+        }
+
+        .certification h4 {
+            font-family: 'Playfair Display', serif;
+            color: #4a7ba7;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .certification-issuer {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 15px;
+        }
+
+        .certification-date {
+            font-size: 12px;
+            color: #bbb;
+        }
+
+        /* Industries */
+        .industries-list {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .industry-tag {
+            background: white;
+            border: 1px solid #e8e4e0;
+            padding: 12px 20px;
+            border-radius: 2px;
+            font-size: 13px;
+            color: #555;
+            transition: all 0.3s ease;
+        }
+
+        .industry-tag:hover {
+            border-color: #4a7ba7;
+            color: #4a7ba7;
+        }
+
+        /* CTA Section */
+        .cta-content {
+            text-align: center;
+            background: linear-gradient(135deg, #4a7ba7 0%, #3d5f80 100%);
+            padding: 80px;
+            border-radius: 2px;
+        }
+
+        .cta-content h2 {
+            color: white;
+            font-size: 56px;
+            margin-bottom: 30px;
+        }
+
+        .cta-content p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #4a7ba7;
+            padding: 14px 40px;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 1px solid white;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-section h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer-section p {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #4a7ba7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            section {
+                padding: 40px 20px;
+                min-height: auto;
+            }
+
+            h1 {
+                font-size: 48px;
+            }
+
+            h2 {
+                font-size: 36px;
+            }
+
+            .section-number {
+                font-size: 150px;
+            }
+
+            .about-content,
+            .case-study-header {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .case-study-meta {
+                text-align: left;
+            }
+
+            .case-study-meta .meta-item {
+                text-align: left;
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .case-study-images {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .cta-content {
+                padding: 40px 20px;
+            }
+
+            .cta-content h2 {
+                font-size: 36px;
+            }
+
+            footer {
+                padding: 40px 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: Hero -->
+    <section class="hero">
+        <div class="section-number">01</div>
+        <div class="section-content">
+            <h1>Priya Jain</h1>
+            <p class="hero-subtitle">Performance Marketing Specialist | SEO & Analytics Expert</p>
+            <div class="metrics-grid">
+                <div class="metric">
+                    <div class="metric-value">8+</div>
+                    <div class="metric-label">Years Experience</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">15+</div>
+                    <div class="metric-label">Successful Campaigns</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">$50M+</div>
+                    <div class="metric-label">Ad Spend Managed</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">300%</div>
+                    <div class="metric-label">Avg ROI Increase</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 2: TOC -->
+    <section>
+        <div class="section-number">02</div>
+        <div class="section-content">
+            <h2 style="text-align: center; margin-bottom: 50px;">Table of Contents</h2>
+            <div class="toc-list">
+                <div class="toc-item">
+                    <div class="toc-item-number">1</div>
+                    <div class="toc-item-title">About</div>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-item-number">2</div>
+                    <div class="toc-item-title">Tech Stack</div>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-item-number">3</div>
+                    <div class="toc-item-title">Case Studies</div>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-item-number">4</div>
+                    <div class="toc-item-title">Certifications</div>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-item-number">5</div>
+                    <div class="toc-item-title">Industries</div>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-item-number">6</div>
+                    <div class="toc-item-title">Contact</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 3: About -->
+    <section>
+        <div class="section-number">03</div>
+        <div class="section-content">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>I'm a performance marketing specialist with 8+ years of experience in driving measurable results through strategic SEO, Google Ads, and Meta Ads campaigns. My expertise spans from initial strategy development through execution, optimization, and scaling.</p>
+                    <p>I've managed over $50M in ad spend across diverse industries, consistently delivering 3x average ROI improvements. My approach combines data-driven insights with creative problem-solving to unlock growth opportunities.</p>
+                    <div class="about-highlights">
+                        <span class="highlight-tag">Performance Marketing</span>
+                        <span class="highlight-tag">SEO Strategy</span>
+                        <span class="highlight-tag">Google Ads</span>
+                        <span class="highlight-tag">Meta Ads</span>
+                        <span class="highlight-tag">Analytics</span>
+                    </div>
+                </div>
+                <div>
+                    <p style="font-size: 14px; color: #999; text-align: center; padding: 40px; background: #f9f7f4; border: 1px solid #e8e4e0; border-radius: 2px;">Professional headshot</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4: Tech Stack -->
+    <section>
+        <div class="section-number">04</div>
+        <div class="section-content">
+            <h2 style="text-align: center; margin-bottom: 50px;">Tech Stack & Tools</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <h4>Analytics</h4>
+                    <p>Google Analytics 4, Search Console, GA Conversion Tracking, Attribution Modeling</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Advertising</h4>
+                    <p>Google Ads, Meta Ads Manager, Campaign Management, Bid Optimization</p>
+                </div>
+                <div class="tech-item">
+                    <h4>SEO Tools</h4>
+                    <p>Ahrefs, SEMrush, Screaming Frog, Keyword Research & Optimization</p>
+                </div>
+                <div class="tech-item">
+                    <h4>CMS & Dev</h4>
+                    <p>WordPress, GTM, Basic HTML/CSS, Website Implementation</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Data & Reporting</h4>
+                    <p>Excel, Google Sheets, Data Studio, Dashboard Creation</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Communication</h4>
+                    <p>Presentation, Stakeholder Management, Documentation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 5-16: Case Studies -->
+    <section>
+        <div class="section-number">05</div>
+        <div class="section-content">
+            <h2 style="margin-bottom: 40px;">Case Study 1: SEO Campaign</h2>
+            <div class="case-study">
+                <div class="case-study-header">
+                    <div>
+                        <div class="case-study-category">Search Engine Optimization</div>
+                        <h3>E-commerce SEO Growth</h3>
+                        <p>Comprehensive SEO strategy that increased organic visibility and revenue for a mid-size e-commerce platform.</p>
+                    </div>
+                    <div class="case-study-meta">
+                        <div class="meta-item">
+                            <div class="meta-label">Timeline</div>
+                            <div class="meta-value">6 months</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Result</div>
+                            <div class="meta-value">+245% Traffic</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-study-description">
+                    <p><strong>Challenge:</strong> Client was struggling with organic visibility despite having quality products. Their website ranked for only brand keywords.</p>
+                    <p><strong>Solution:</strong> Implemented comprehensive SEO strategy including technical audit, keyword research, on-page optimization, content strategy, and link building.</p>
+                    <p><strong>Results:</strong></p>
+                </div>
+                <table class="metrics-table">
+                    <tr>
+                        <td>Organic Traffic</td>
+                        <td>+245%</td>
+                    </tr>
+                    <tr>
+                        <td>Keyword Rankings</td>
+                        <td>+1,200 keywords in top 10</td>
+                    </tr>
+                    <tr>
+                        <td>Organic Revenue</td>
+                        <td>+$180K per month</td>
+                    </tr>
+                    <tr>
+                        <td>Conversion Rate</td>
+                        <td>+35%</td>
+                    </tr>
+                </table>
+                <div class="case-study-images">
+                    <div class="case-image-wrapper">
+                        <img src="assets/images/image-6-1.png" alt="SEO Case Study 1 - Screenshot 1">
+                    </div>
+                    <div class="case-image-wrapper">
+                        <img src="assets/images/image-6-2.png" alt="SEO Case Study 1 - Screenshot 2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-number">06</div>
+        <div class="section-content">
+            <h2 style="margin-bottom: 40px;">Case Study 2: SEO Expansion</h2>
+            <div class="case-study">
+                <div class="case-study-header">
+                    <div>
+                        <div class="case-study-category">Search Engine Optimization</div>
+                        <h3>Multi-Category SEO Scaling</h3>
+                        <p>Expanded SEO strategy across multiple product categories, establishing market dominance in competitive niches.</p>
+                    </div>
+                    <div class="case-study-meta">
+                        <div class="meta-item">
+                            <div class="meta-label">Timeline</div>
+                            <div class="meta-value">8 months</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Result</div>
+                            <div class="meta-value">+520% Visibility</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-study-description">
+                    <p><strong>Challenge:</strong> Competitors dominated multiple product categories. Client needed to establish authority quickly.</p>
+                    <p><strong>Solution:</strong> Developed category-specific SEO roadmap, created pillar content, built internal linking structure, and executed link acquisition campaign.</p>
+                    <p><strong>Results:</strong></p>
+                </div>
+                <table class="metrics-table">
+                    <tr>
+                        <td>Search Visibility</td>
+                        <td>+520%</td>
+                    </tr>
+                    <tr>
+                        <td>Featured Snippets</td>
+                        <td>+85 positions</td>
+                    </tr>
+                    <tr>
+                        <td>Monthly Users</td>
+                        <td>+420K</td>
+                    </tr>
+                    <tr>
+                        <td>Market Share</td>
+                        <td>Top 3 in 4 categories</td>
+                    </tr>
+                </table>
+                <div class="case-study-images">
+                    <div class="case-image-wrapper">
+                        <img src="assets/images/image-8-1.png" alt="SEO Case Study 2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-number">07</div>
+        <div class="section-content">
+            <h2 style="margin-bottom: 40px;">Case Study 3: SEO Monetization</h2>
+            <div class="case-study">
+                <div class="case-study-header">
+                    <div>
+                        <div class="case-study-category">Search Engine Optimization</div>
+                        <h3>SEO-Driven Lead Generation</h3>
+                        <p>Optimized B2B website to capture qualified leads through organic search, creating a sustainable pipeline.</p>
+                    </div>
+                    <div class="case-study-meta">
+                        <div class="meta-item">
+                            <div class="meta-label">Timeline</div>
+                            <div class="meta-value">4 months</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Result</div>
+                            <div class="meta-value">+340 MQLs</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-study-description">
+                    <p><strong>Challenge:</strong> B2B company relied heavily on paid ads. Needed cost-effective lead generation channel.</p>
+                    <p><strong>Solution:</strong> Built authority content hub, optimized for commercial keywords, improved site experience, and implemented lead capture forms.</p>
+                    <p><strong>Results:</strong></p>
+                </div>
+                <table class="metrics-table">
+                    <tr>
+                        <td>Qualified Leads (MQL)</td>
+                        <td>+340/month</td>
+                    </tr>
+                    <tr>
+                        <td>Cost Per Lead</td>
+                        <td>-$45 (vs paid)</td>
+                    </tr>
+                    <tr>
+                        <td>Sales Qualified Leads</td>
+                        <td>+86 MQLs → SQLs</td>
+                    </tr>
+                    <tr>
+                        <td>Sales Revenue</td>
+                        <td>+$920K annually</td>
+                    </tr>
+                </table>
+                <div class="case-study-images">
+                    <div class="case-image-wrapper">
+                        <img src="assets/images/image-9-1.png" alt="SEO Case Study 3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-number">08</div>
+        <div class="section-content">
+            <h2 style="margin-bottom: 40px;">Case Study 4: Google Ads I</h2>
+            <div class="case-study">
+                <div class="case-study-header">
+                    <div>
+                        <div class="case-study-category">Paid Search Marketing</div>
+                        <h3>E-commerce PPC Optimization</h3>
+                        <p>Restructured and optimized Google Ads account for a growing SaaS platform, improving efficiency and scale.</p>
+                    </div>
+                    <div class="case-study-meta">
+                        <div class="meta-item">
+                            <div class="meta-label">Timeline</div>
+                            <div class="meta-value">3 months</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Result</div>
+                            <div class="meta-value">+180% ROAS</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-study-description">
+                    <p><strong>Challenge:</strong> Google Ads account was poorly structured with high CPC and low conversion rates.</p>
+                    <p><strong>Solution:</strong> Restructured account architecture, implemented audience segmentation, optimized bids with smart bidding, A/B tested creatives.</p>
+                    <p><strong>Results:</strong></p>
+                </div>
+                <table class="metrics-table">
+                    <tr>
+                        <td>ROAS Improvement</td>
+                        <td>+180%</td>
+                    </tr>
+                    <tr>
+                        <td>Cost Per Conversion</td>
+                        <td>-42%</td>
+                    </tr>
+                    <tr>
+                        <td>Conversion Rate</td>
+                        <td>+3.2% to +8.1%</td>
+                    </tr>
+                    <tr>
+                        <td>Monthly Revenue</td>
+                        <td>+$640K</td>
+                    </tr>
+                </table>
+                <div class="case-study-images">
+                    <div class="case-image-wrapper">
+                        <img src="assets/images/image-11-1.jpeg" alt="Google Ads Case Study 1">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-number">09</div>
+        <div class="section-content">
+            <h2 style="margin-bottom: 40px;">Case Study 5: Google Ads II</h2>
+            <div class="case-study">
+                <div class="case-study-header">
+                    <div>
+                        <div class="case-study-category">Paid Search Marketing</div>
+                        <h3>Performance Max Campaign Launch</h3>
+                        <p>Launched and scaled Performance Max campaigns to capture demand across multiple channels and devices.</p>
+                    </div>
+                    <div class="case-study-meta">
+                        <div class="meta-item">
+                            <div class="meta-label">Timeline</div>
+                            <div class="meta-value">2 months</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Result</div>
+                            <div class="meta-value">+$2.1M Revenue</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-study-description">
+                    <p><strong>Challenge:</strong> Client needed new growth channel beyond traditional search to scale revenue.</p>
+                    <p><strong>Solution:</strong> Built Performance Max campaigns with dynamic creative assets, implemented audience lists, set up conversion tracking, optimized budget allocation.</p>
+                    <p><strong>Results:</strong></p>
+                </div>
+                <table class="metrics-table">
+                    <tr>
+                        <td>New Revenue</td>
+                        <td>+$2.1M</td>
+                    </tr>
+                    <tr>
+                        <td>ROAS</td>
+                        <td>4.2x</td>
+                    </tr>
+                    <tr>
+                        <td>Impressions</td>
+                        <td>15.3M cross-channel</td>
+                    </tr>
+                    <tr>
+                        <td>Budget Efficiency</td>
+                        <td>+28% improvement</td>
+                    </tr>
+                </table>
+                <div class="case-study-images">
+                    <div class="case-image-wrapper">
+                        <img src="assets/images/image-12-1.jpeg" alt="Google Ads Case Study 2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-number">10</div>
+        <div class="section-content">
+            <h2 style="margin-bottom: 40px;">Case Study 6: Google Ads III</h2>
+            <div class="case-study">
+                <div class="case-study-header">
+                    <div>
+                        <div class="case-study-category">Paid Search Marketing</div>
+                        <h3>B2B Lead Generation at Scale</h3>
+                        <p>Developed and managed high-volume Google Ads campaigns to deliver qualified B2B leads cost-effectively.</p>
+                    </div>
+                    <div class="case-study-meta">
+                        <div class="meta-item">
+                            <div class="meta-label">Timeline</div>
+                            <div class="meta-value">6 months</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Result</div>
+                            <div class="meta-value">1,240 Leads</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-study-description">
+                    <p><strong>Challenge:</strong> B2B company needed consistent lead flow but faced budget constraints and high CPL.</p>
+                    <p><strong>Solution:</strong> Implemented keyword mining strategy, created audience targeting layers, optimized landing pages, set up lead scoring.</p>
+                    <p><strong>Results:</strong></p>
+                </div>
+                <table class="metrics-table">
+                    <tr>
+                        <td>Total Leads Generated</td>
+                        <td>1,240</td>
+                    </tr>
+                    <tr>
+                        <td>Cost Per Lead</td>
+                        <td>$32</td>
+                    </tr>
+                    <tr>
+                        <td>Lead Quality Score</td>
+                        <td>+42 points</td>
+                    </tr>
+                    <tr>
+                        <td>Sales Pipeline Value</td>
+                        <td>$3.8M</td>
+                    </tr>
+                </table>
+                <div class="case-study-images">
+                    <div class="case-image-wrapper">
+                        <img src="assets/images/image-13-1.jpeg" alt="Google Ads Case Study 3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-number">11</div>
+        <div class="section-content">
+            <h2 style="margin-bottom: 40px;">Case Study 7: Meta Ads I</h2>
+            <div class="case-study">
+                <div class="case-study-header">
+                    <div>
+                        <div class="case-study-category">Social Media Advertising</div>
+                        <h3>Meta Ads E-commerce Growth</h3>
+                        <p>Built and optimized comprehensive Meta Ads strategy across Facebook and Instagram for e-commerce profitability.</p>
+                    </div>
+                    <div class="case-study-meta">
+                        <div class="meta-item">
+                            <div class="meta-label">Timeline</div>
+                            <div class="meta-value">5 months</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Result</div>
+                            <div class="meta-value">+380% ROAS</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-study-description">
+                    <p><strong>Challenge:</strong> Meta Ads campaigns were running unprofitably with poor audience targeting and creative performance.</p>
+                    <p><strong>Solution:</strong> Rebuilt audience segments, created dynamic product ads, implemented creative testing framework, optimized conversion API.</p>
+                    <p><strong>Results:</strong></p>
+                </div>
+                <table class="metrics-table">
+                    <tr>
+                        <td>ROAS</td>
+                        <td>3.8x (from 0.8x)</td>
+                    </tr>
+                    <tr>
+                        <td>Monthly Revenue</td>
+                        <td>+$520K</td>
+                    </tr>
+                    <tr>
+                        <td>Customer Acquisition Cost</td>
+                        <td>-$18</td>
+                    </tr>
+                    <tr>
+                        <td>Repeat Customer Rate</td>
+                        <td>+22%</td>
+                    </tr>
+                </table>
+                <div class="case-study-images">
+                    <div class="case-image-wrapper">
+                        <img src="assets/images/image-15-1.jpeg" alt="Meta Ads Case Study 1">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-number">12</div>
+        <div class="section-content">
+            <h2 style="margin-bottom: 40px;">Case Study 8: Meta Ads II</h2>
+            <div class="case-study">
+                <div class="case-study-header">
+                    <div>
+                        <div class="case-study-category">Social Media Advertising</div>
+                        <h3>Brand Awareness & Lead Gen Campaign</h3>
+                        <p>Executed integrated Meta Ads campaign combining awareness, consideration, and conversion objectives for SaaS startup.</p>
+                    </div>
+                    <div class="case-study-meta">
+                        <div class="meta-item">
+                            <div class="meta-label">Timeline</div>
+                            <div class="meta-value">4 months</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Result</div>
+                            <div class="meta-value">+850 leads</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-study-description">
+                    <p><strong>Challenge:</strong> New SaaS product with no brand awareness needed rapid customer acquisition.</p>
+                    <p><strong>Solution:</strong> Built funnel-based campaigns, created educational content creatives, developed lookalike audiences, optimized landing pages.</p>
+                    <p><strong>Results:</strong></p>
+                </div>
+                <table class="metrics-table">
+                    <tr>
+                        <td>Total Leads</td>
+                        <td>850</td>
+                    </tr>
+                    <tr>
+                        <td>Cost Per Lead</td>
+                        <td>$24</td>
+                    </tr>
+                    <tr>
+                        <td>Sales Qualified Leads</td>
+                        <td>187</td>
+                    </tr>
+                    <tr>
+                        <td>First Customer Deals</td>
+                        <td>$380K value</td>
+                    </tr>
+                </table>
+                <div class="case-study-images">
+                    <div class="case-image-wrapper">
+                        <img src="assets/images/image-16-1.jpeg" alt="Meta Ads Case Study 2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-number">13</div>
+        <div class="section-content">
+            <h2 style="margin-bottom: 40px;">Case Study 9: Meta Ads III</h2>
+            <div class="case-study">
+                <div class="case-study-header">
+                    <div>
+                        <div class="case-study-category">Social Media Advertising</div>
+                        <h3>Community-Driven Growth Campaign</h3>
+                        <p>Leveraged user-generated content and community engagement to scale brand presence and customer acquisition.</p>
+                    </div>
+                    <div class="case-study-meta">
+                        <div class="meta-item">
+                            <div class="meta-label">Timeline</div>
+                            <div class="meta-value">3 months</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Result</div>
+                            <div class="meta-value">+45K followers</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-study-description">
+                    <p><strong>Challenge:</strong> Traditional ads weren't resonating with target community. Needed authentic engagement.</p>
+                    <p><strong>Solution:</strong> Developed user-generated content strategy, created community-focused creatives, built ambassador program, optimized community engagement.</p>
+                    <p><strong>Results:</strong></p>
+                </div>
+                <table class="metrics-table">
+                    <tr>
+                        <td>Community Growth</td>
+                        <td>+45K followers</td>
+                    </tr>
+                    <tr>
+                        <td>Engagement Rate</td>
+                        <td>+340%</td>
+                    </tr>
+                    <tr>
+                        <td>Conversion Rate</td>
+                        <td>6.2% (vs 1.8% avg)</td>
+                    </tr>
+                    <tr>
+                        <td>Customer Lifetime Value</td>
+                        <td>+$280</td>
+                    </tr>
+                </table>
+                <div class="case-study-images">
+                    <div class="case-image-wrapper">
+                        <img src="assets/images/image-17-1.jpeg" alt="Meta Ads Case Study 3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-number">14</div>
+        <div class="section-content">
+            <h2 style="margin-bottom: 40px;">Case Study 10: Amazon Ads I</h2>
+            <div class="case-study">
+                <div class="case-study-header">
+                    <div>
+                        <div class="case-study-category">E-commerce Advertising</div>
+                        <h3>Amazon Sponsored Products Launch</h3>
+                        <p>Built and scaled Amazon Sponsored Products campaign to dominate product category and maximize profitability.</p>
+                    </div>
+                    <div class="case-study-meta">
+                        <div class="meta-item">
+                            <div class="meta-label">Timeline</div>
+                            <div class="meta-value">2 months</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Result</div>
+                            <div class="meta-value">+$1.8M Revenue</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-study-description">
+                    <p><strong>Challenge:</strong> Product visibility on Amazon was poor. Competitors dominated search results.</p>
+                    <p><strong>Solution:</strong> Implemented keyword research strategy, created optimized product listings, built Sponsored Products campaigns, optimized bids dynamically.</p>
+                    <p><strong>Results:</strong></p>
+                </div>
+                <table class="metrics-table">
+                    <tr>
+                        <td>Revenue Generated</td>
+                        <td>$1.8M</td>
+                    </tr>
+                    <tr>
+                        <td>ACoS (Cost of Sale)</td>
+                        <td>12.3%</td>
+                    </tr>
+                    <tr>
+                        <td>Best Seller Badge</td>
+                        <td>Achieved in 2 months</td>
+                    </tr>
+                    <tr>
+                        <td>Product Reviews</td>
+                        <td>+280 5-star reviews</td>
+                    </tr>
+                </table>
+                <div class="case-study-images">
+                    <div class="case-image-wrapper">
+                        <img src="assets/images/image-19-1.png" alt="Amazon Ads Case Study 1">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-number">15</div>
+        <div class="section-content">
+            <h2 style="margin-bottom: 40px;">Case Study 11: Amazon Ads II</h2>
+            <div class="case-study">
+                <div class="case-study-header">
+                    <div>
+                        <div class="case-study-category">E-commerce Advertising</div>
+                        <h3>Multi-Product Portfolio Management</h3>
+                        <p>Managed advertising strategy across 12+ product SKUs to maximize overall profitability and market share.</p>
+                    </div>
+                    <div class="case-study-meta">
+                        <div class="meta-item">
+                            <div class="meta-label">Timeline</div>
+                            <div class="meta-value">6 months</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Result</div>
+                            <div class="meta-value">+$3.2M Revenue</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-study-description">
+                    <p><strong>Challenge:</strong> Managing multiple products with different performance profiles and budget allocation needs.</p>
+                    <p><strong>Solution:</strong> Built portfolio-level optimization framework, created performance-based budget allocation, implemented cross-product remarketing.</p>
+                    <p><strong>Results:</strong></p>
+                </div>
+                <table class="metrics-table">
+                    <tr>
+                        <td>Total Revenue</td>
+                        <td>+$3.2M</td>
+                    </tr>
+                    <tr>
+                        <td>Avg ACoS</td>
+                        <td>14.8%</td>
+                    </tr>
+                    <tr>
+                        <td>Products at #1 Ranking</td>
+                        <td>8 of 12</td>
+                    </tr>
+                    <tr>
+                        <td>Category Share</td>
+                        <td>+31% market share</td>
+                    </tr>
+                </table>
+                <div class="case-study-images">
+                    <div class="case-image-wrapper">
+                        <img src="assets/images/image-20-1.png" alt="Amazon Ads Case Study 2 - Part 1">
+                    </div>
+                    <div class="case-image-wrapper">
+                        <img src="assets/images/image-20-2.png" alt="Amazon Ads Case Study 2 - Part 2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-number">16</div>
+        <div class="section-content">
+            <h2 style="margin-bottom: 40px;">Case Study 12: Amazon Ads III</h2>
+            <div class="case-study">
+                <div class="case-study-header">
+                    <div>
+                        <div class="case-study-category">E-commerce Advertising</div>
+                        <h3>Brand Store Optimization & Demand Gen</h3>
+                        <p>Launched Brand Store and integrated demand generation campaigns to create seamless shopping experience and increase customer lifetime value.</p>
+                    </div>
+                    <div class="case-study-meta">
+                        <div class="meta-item">
+                            <div class="meta-label">Timeline</div>
+                            <div class="meta-value">4 months</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Result</div>
+                            <div class="meta-value">+58% CLV</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-study-description">
+                    <p><strong>Challenge:</strong> Single-product strategy limiting revenue potential. Needed to drive cross-selling and build brand loyalty.</p>
+                    <p><strong>Solution:</strong> Built comprehensive Brand Store, created brand campaign strategy, implemented retargeting, optimized for repeat purchases.</p>
+                    <p><strong>Results:</strong></p>
+                </div>
+                <table class="metrics-table">
+                    <tr>
+                        <td>Customer Lifetime Value</td>
+                        <td>+58%</td>
+                    </tr>
+                    <tr>
+                        <td>Repeat Purchase Rate</td>
+                        <td>+45%</td>
+                    </tr>
+                    <tr>
+                        <td>Brand Store Traffic</td>
+                        <td>+120K monthly</td>
+                    </tr>
+                    <tr>
+                        <td>Total Revenue</td>
+                        <td>$2.4M</td>
+                    </tr>
+                </table>
+                <div class="case-study-images">
+                    <div class="case-image-wrapper">
+                        <img src="assets/images/image-21-1.png" alt="Amazon Ads Case Study 3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 17: Certifications -->
+    <section>
+        <div class="section-number">17</div>
+        <div class="section-content">
+            <h2 style="text-align: center; margin-bottom: 50px;">Certifications</h2>
+            <div class="certifications-grid">
+                <div class="certification">
+                    <h4>Google Ads Certified</h4>
+                    <div class="certification-issuer">Google</div>
+                    <div class="certification-date">2023</div>
+                </div>
+                <div class="certification">
+                    <h4>Google Analytics Expert</h4>
+                    <div class="certification-issuer">Google Analytics Academy</div>
+                    <div class="certification-date">2023</div>
+                </div>
+                <div class="certification">
+                    <h4>HubSpot Inbound Marketing</h4>
+                    <div class="certification-issuer">HubSpot Academy</div>
+                    <div class="certification-date">2022</div>
+                </div>
+                <div class="certification">
+                    <h4>Advanced Google Analytics</h4>
+                    <div class="certification-issuer">Google Analytics Academy</div>
+                    <div class="certification-date">2022</div>
+                </div>
+                <div class="certification">
+                    <h4>Meta Blueprint Certified</h4>
+                    <div class="certification-issuer">Meta</div>
+                    <div class="certification-date">2023</div>
+                </div>
+                <div class="certification">
+                    <h4>SEO Specialist Certification</h4>
+                    <div class="certification-issuer">Moz Academy</div>
+                    <div class="certification-date">2021</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 18: Industries -->
+    <section>
+        <div class="section-number">18</div>
+        <div class="section-content">
+            <h2 style="text-align: center; margin-bottom: 50px;">Industries & Expertise</h2>
+            <div style="text-align: center; margin-bottom: 40px;">
+                <p>Proven expertise across diverse industries with consistent high-performance results</p>
+            </div>
+            <div class="industries-list">
+                <span class="industry-tag">E-Commerce & Retail</span>
+                <span class="industry-tag">SaaS & Software</span>
+                <span class="industry-tag">B2B Services</span>
+                <span class="industry-tag">Digital Marketing</span>
+                <span class="industry-tag">Technology</span>
+                <span class="industry-tag">Health & Wellness</span>
+                <span class="industry-tag">Fintech</span>
+                <span class="industry-tag">Education</span>
+                <span class="industry-tag">Real Estate</span>
+                <span class="industry-tag">Travel & Hospitality</span>
+                <span class="industry-tag">Fashion & Apparel</span>
+                <span class="industry-tag">Food & Beverage</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 19: CTA -->
+    <section>
+        <div class="section-number">19</div>
+        <div class="section-content">
+            <div class="cta-content">
+                <h2>Let's Work Together</h2>
+                <p>Ready to grow your business with data-driven marketing strategies?</p>
+                <a href="mailto:ipriyajain4@gmail.com" class="cta-button">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 20: Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><a href="mailto:ipriyajain4@gmail.com">ipriyajain4@gmail.com</a></p>
+                    <p>Based in India</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Social</h4>
+                    <p><a href="#">LinkedIn</a></p>
+                    <p><a href="#">Portfolio</a></p>
+                    <p><a href="#">Twitter</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <p>SEO Strategy & Implementation</p>
+                    <p>Google Ads Management</p>
+                    <p>Meta Ads Optimization</p>
+                    <p>Analytics & Reporting</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Experience</h4>
+                    <p>8+ years in Performance Marketing</p>
+                    <p>$50M+ in ad spend managed</p>
+                    <p>15+ successful campaigns</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Priya Jain. All rights reserved. | <a href="#">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
