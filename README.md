@@ -14,6 +14,7 @@ Collection of portfolio design versions showcasing evolution.
 - **[Version 3](https://ipriyajain.github.io/priya-jain-portfolio-versions/v3/)** - Modern improvements
 - **[Version 4](https://ipriyajain.github.io/priya-jain-portfolio-versions/v4/)** - Refined interactions
 - **[Version 5](https://ipriyajain.github.io/priya-jain-portfolio-versions/v5/)** - Latest version
+- **[Version 6](https://ipriyajain.github.io/priya-jain-portfolio-versions/v6/)** - Scrollable full deck
 
 ## Repository
 
